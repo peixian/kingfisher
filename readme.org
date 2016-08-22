@@ -1,0 +1,6 @@
+* Kingfisher - An Experiment in Language Evolution
+Kingfisher is a a small experiment to see how languages evolve, given a particular biome and communities. 
+
+** Seeding:
+*** N communities are distributed between various biomes across the generated continent(s)?
+*** Each community is seeded with 200 words (100 nouns, 50 verbs, 50 other). Using a genetic algorithm, each community evolves it's language down to 100 words, which then results 
