@@ -1,9 +1,12 @@
 import numpy as np
-
+from networkx import *
 class Voronoi(object):
     """
     Implements Fortune's Algorithm (https://en.wikipedia.org/wiki/Fortune%27s_algorithm) in python.
-    Takes in a 2D numpy array (or generates points with given boundaries), returns a tuple of two graphs representing the Delaunay triangulation (https://en.wikipedia.org/wiki/Delaunay_triangulation), creating a Voronoi diagram (http://www.voronoi.com/wiki/index.php?title=Main_Page)
+    1. Takes in a 2D numpy array (or generates points with given boundaries)
+    2. Creates a tuple of two graphs (with networkx) representing the Delaunay triangulation (https://en.wikipedia.org/wiki/Delaunay_triangulation)
+    3. Relaxes the points through Lloyd's Algorithm (https://en.wikipedia.org/wiki/Lloyd%27s_algorithm)
+    4. Returns a Voronoi diagram (http://www.voronoi.com/wiki/index.php?title=Main_Page)
     """
 
     def __init__(self, points = None, dimensions = (None, None), granularity = None):
@@ -22,7 +25,7 @@ class Voronoi(object):
             return
         if dimensions != None and granularity == None:
             print('Granularity can\'t be none if dimensions are passed in, try passing in a granularity.')
-
+            return
         if points:
             self.points = points
         else:
@@ -32,4 +35,31 @@ class Voronoi(object):
             self.points = points
 
     def _eu_distance(p1, p2):
+        """
+        Calculates the Euclidian distance between two points
+
+        :param p1: (x,y) position for the first point
+        :type p1: tuple (or list) of floats
+        :param p2: (x,y) position for the second point
+        :type p2: tuple (or list) of floats
+
+        :return: the euclidian distance
+        :rtype: float
+        """
         pass
+
+    def generate_voronoi():
+        """
+        Uses Fortune's Algorithm to create a voronoi diagram
+        """
+        pass
+
+    def relax_points():
+        """
+        Relaxes the points after an initial Voronoi is created to refine the graph.
+        """
+        pass
+
+
+
+
