@@ -9,7 +9,7 @@ class Voronoi(object):
     4. Returns a Voronoi diagram (http://www.voronoi.com/wiki/index.php?title=Main_Page)
     """
 
-    def __init__(self, points = None, dimensions = (None, None), granularity = None):
+    def __init__(self, points = np.array([]), dimensions = (None, None), granularity = None):
         """
         Creates the Voronoi object
 
@@ -20,13 +20,13 @@ class Voronoi(object):
         :param granularity: how many points to create, must be given if dimensions are given
         :type granularity: int, default None
         """
-        if points == None and dimensions == (None, None):
+        if len(points) == 0 and dimensions == (None, None):
             print('You can\'t have both points and dimensions be empty, try passing in some points or dimensions and granularity.')
             return
-        if dimensions != None and granularity == None:
+        if len(points) == 0 and dimensions != None and granularity == None:
             print('Granularity can\'t be none if dimensions are passed in, try passing in a granularity.')
             return
-        if points:
+        if len(points) != 0:
             self.points = points
         else:
             points = np.random.random((2, granularity))
