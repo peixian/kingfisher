@@ -17,3 +17,15 @@ class VoronoiTests(TestCase):
         self.client = Voronoi(dimensions=(30, 30), granularity = 20)
         self.assertTrue(len(self.client.points[0]) == 20)
         self.assertTrue(max(self.client.points[0]) <= 30)
+
+    def test_eu_distance(self):
+        points = np.array([[0,0],[2,1.5]])
+        self.client = Voronoi(points = points)
+        self.assertEqual(self.client._eu_distance(points[0], points[1]), 2.5)
+
+    def test_generate_voronoi():
+        vor = self.client.generate_voronoi()
+        self.assertEqual(len(vor.points), len(self.client.points))
+
+    def test_relax_points():
+        pass

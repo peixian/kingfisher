@@ -1,7 +1,12 @@
 import numpy as np
 from networkx import *
+from scipy.spatial import Voronoi
+
+
 class Voronoi(object):
     """
+    Uses scipy.spatil to construct a Voronoi diagram according to specifications.
+
     Implements Fortune's Algorithm (https://en.wikipedia.org/wiki/Fortune%27s_algorithm) in python.
     1. Takes in a 2D numpy array (or generates points with given boundaries)
     2. Creates a tuple of two graphs (with networkx) representing the Delaunay triangulation (https://en.wikipedia.org/wiki/Delaunay_triangulation)
@@ -14,8 +19,8 @@ class Voronoi(object):
         Creates the Voronoi object
 
         :param points: predefined points
-        :type points: numpy array of shape (2, w) where w is the number of points [x, y] style, default None
-        :param dimensions: dimensions of the points, from [0, w] where w is the highest value, this *cannot* be None if points is None
+        :type points: numpy array of shape (w, 2) where w is the number of points [x, y] style, default None
+        :param dimensions: dimensions of the points, from [w, 2] where w is the highest value, this *cannot* be None if points is None
         :type dimensions: tuple of ints, maximum (x,y) dimensions, default None
         :param granularity: how many points to create, must be given if dimensions are given
         :type granularity: int, default None
@@ -29,12 +34,12 @@ class Voronoi(object):
         if len(points) != 0:
             self.points = points
         else:
-            points = np.random.random((2, granularity))
+            points = np.random.random((granularity, 2))
             for i in range(len(dimensions)):
                 points[i] = points[i]*dimensions[i]
             self.points = points
 
-    def _eu_distance(p1, p2):
+    def _eu_distance(self, p1, p2):
         """
         Calculates the Euclidian distance between two points
 
@@ -46,15 +51,18 @@ class Voronoi(object):
         :return: the euclidian distance
         :rtype: float
         """
-        pass
+        return np.sqrt(np.power(p1[0]-p2[0], 2) + np.power(p1[1]-p2[1], 2))
 
-    def generate_voronoi():
+    def generate_voronoi(self):
         """
-        Uses Fortune's Algorithm to create a voronoi diagram
-        """
-        pass
+        Uses scipy.spatial.Voronoi to generate a Voronoi diagram
 
-    def relax_points():
+        :return: voronoi graph
+        :rtype: scipy.spatial.Voronoi object
+        """
+        return 0
+
+    def relax_points(self):
         """
         Relaxes the points after an initial Voronoi is created to refine the graph.
         """
