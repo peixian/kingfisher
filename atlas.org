@@ -67,6 +67,13 @@
   plt.show()
 #+END_SRC
 
+#+RESULTS:
+[[file:vor_relaxed.png]]
+
+
+#+BEGIN_SRC ipython :session :file relaxed_p2.png :exports both
+#+END_SRC
+
 
 
 #+BEGIN_SRC ipython :session :file vor_relaxed.png :exports both

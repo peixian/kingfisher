@@ -152,3 +152,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+_build
+tmp/

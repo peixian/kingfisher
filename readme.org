@@ -15,9 +15,10 @@ Kingfisher is a a small experiment to see how languages evolve, given a particul
 *** Dwarf Fortress map generation: http://www.gamasutra.com/view/feature/3549/interview_the_making_of_dwarf_.php?page=7
 *** Geometric tesselations? 
 *** n-gonal generation?
-*** Voronoi Tesslations?
+*** Voronoi Tesslations? - http://www.gameprogrammer.com/fractal.html
 *** Coastal generation/contientents/etc
 *** Civ/endless legend/4x mapping generation?
+*** Glacial processes: http://uregina.ca/~sauchyn/geog323/glacial1.html
 *** Notes
 **** Uses buildings, but a simple guide: https://www.cs.auckland.ac.nz/~roboteam/documents/RandomMapGenerator.pdf
 **** Lynda: https://www.lynda.com/Unity-tutorials/Unity-5-2D-Random-Map-Generation/475939-2.html

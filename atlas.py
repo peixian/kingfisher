@@ -1,6 +1,7 @@
 import numpy as np
 from networkx import *
 from scipy.spatial import Voronoi
+import sys
 
 class Atlas(object):
     """
@@ -39,7 +40,8 @@ class Atlas(object):
         else:
             points = np.random.random((granularity, 2))
             points = list(map(lambda x: np.array([x[0]*dimensions[0], x[1]*dimensions[1]]), points))
-            self.points = points
+            self.points = np.array(points)
+        self.bounding_region = [min(self.points[:, 0]), max(self.points[:, 0]), min(self.points[:, 1]), max(self.points[:, 1])]
 
     def _eu_distance(self, p1, p2):
         """
@@ -61,6 +63,7 @@ class Atlas(object):
         :return: A voronoi diagram based on the points
         :rtype: scipy.spatial.Voronoi
         """
+        eps = sys.float_info.epsilon
         self.vor = Voronoi(self.points)
         self.filtered_regions = [] #see https://stackoverflow.com/questions/28665491/getting-a-bounded-polygon-coordinates-from-voronoi-cells
         for region in self.vor.regions:
@@ -72,13 +75,12 @@ class Atlas(object):
                 else:
                     x = self.vor.vertices[index, 0]
                     y = self.vor.vertices[index, 1]
-                    if not (bounding_region[0] - eps <= x and x <= bounding_region[1] + eps and
-                            bounding_region[2] - eps <= y and y <= bounding_region[3] + eps):
+                    if not (self.bounding_region[0] - eps <= x and x <= self.bounding_region[1] + eps and
+                            self.bounding_region[2] - eps <= y and y <= self.bounding_region[3] + eps):
                         flag = False
                         break
             if region != [] and flag:
                 self.filtered_regions.append(region)
-        self.bounding_region = [min(self.points[:, 0]), max(self.points[:, 0]), min(self.points[:, 1]), max(self.points[:, 1])]
         return self.vor
 
     def _region_centroid(self, vertices):
@@ -113,7 +115,7 @@ class Atlas(object):
         for i in range(times):
             centroids = []
             for region in self.filtered_regions:
-                vertices = self.vor.verices[region + [region[0]], :]
+                vertices = self.vor.vertices[region + [region[0]], :]
                 centroid = get_centroid(vertices)
                 centroids.append(list(centroid[0, :]))
             self.generate_voronoi()

@@ -33,6 +33,15 @@ class AtlasTests(TestCase):
         #voronoi_plot_2d(self.client.vor)
         #plt.show()
 
+    def test_region_centroid(self):
+        """Tests for the region centroid function"""
+        self.client = Atlas(dimensions = (300, 300), granularity = 200)
+        self.client.generate_voronoi()
+        print(self.client.vor.vertices[self.client.filtered_regions[0] + [self.client.filtered_regions[0][0]], :])
+        vert = np.array([[1,1], [1, 4], [4, 1], [4,4]])
+        central_pt = self.client._region_centroid(vert)
+        print(central_pt)
+
     def test_relax_points(self):
         """Tests the generation of the relaxation points of the Voronoi diagram"""
         pass
