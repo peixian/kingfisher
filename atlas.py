@@ -111,13 +111,20 @@ class Atlas(object):
         """
         Relaxes the points after an initial Voronoi is created to refine the graph.
         See: https://stackoverflow.com/questions/17637244/voronoi-and-lloyd-relaxation-using-python-scipy
+
+        :param times: Number of times to relax, default is 1
+        :type times: int
+
+        :return: the final voronoi diagrama
+        :rtype: scipy.spatial.Voronoi
         """
         for i in range(times):
             centroids = []
             for region in self.filtered_regions:
                 vertices = self.vor.vertices[region + [region[0]], :]
-                centroid = get_centroid(vertices)
+                centroid = self._region_centroid(vertices)
                 centroids.append(list(centroid[0, :]))
+            self.points = centroids
             self.generate_voronoi()
         return self.vor
 
