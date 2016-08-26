@@ -1,7 +1,7 @@
-voronoi module
-==============
+atlas module
+============
 
-.. automodule:: voronoi
+.. automodule:: atlas
     :members:
     :undoc-members:
     :show-inheritance:

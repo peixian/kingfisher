@@ -4,3 +4,50 @@ Kingfisher is a a small experiment to see how languages evolve, given a particul
 ** Seeding:
 *** N communities are distributed between various biomes across the generated continent(s)?
 *** Each community is seeded with 200 words (100 nouns, 50 verbs, 50 other). Using a genetic algorithm, each community evolves it's language down to 100 words, which then results 
+
+* Notes:
+** [#A] Mapping generation
+*** Polygonal Map Generation for Games - http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+**** Starts with graph structure and builds outwards
+*** Desert Generation - https://github.com/mewo2/deserts
+*** Generating fantasy maps - http://mewo2.com/notes/terrain/
+*** Random map generation - https://gamedev.stackexchange.com/questions/31241/random-map-generation
+*** Dwarf Fortress map generation: http://www.gamasutra.com/view/feature/3549/interview_the_making_of_dwarf_.php?page=7
+*** Geometric tesselations? 
+*** n-gonal generation?
+*** Voronoi Tesslations?
+*** Coastal generation/contientents/etc
+*** Civ/endless legend/4x mapping generation?
+*** Notes
+**** Uses buildings, but a simple guide: https://www.cs.auckland.ac.nz/~roboteam/documents/RandomMapGenerator.pdf
+**** Lynda: https://www.lynda.com/Unity-tutorials/Unity-5-2D-Random-Map-Generation/475939-2.html
+** [#B] Language development
+*** Language Evolution
+**** Language Evolution Simulation - https://fatiherikli.github.io/language-evolution-simulation/
+***** Uses agent based evolution, we'll use cross pollination instead?
+***** https://www.wikiwand.com/en/Agent-based_model
+*** Neural networking to evolve languages
+*** Languages as base?
+**** Arabic - Koran/?
+**** Chinese - Journey to the west/etc
+**** Latin - Romance languages - plato's works/homer's works
+*** Migration: https://en.wikipedia.org/wiki/Human_migration
+*** Interactions with each other - neural networking - evolves the corpus with each other's works - markov chains???
+**** Markov Chains Based Random Word Generation: http://ben.akrin.com/?p=779
+***** Another: https://terse-words.blogspot.com/2012/02/generating-gibberish-in-python-markov.html
+*** Skip-gram model with fasttext/gensim
+*** AI Lectures: http://ai.berkeley.edu/lecture_videos.html
+*** Model generation?
+**** Natural Language Inference Chains: https://arxiv.org/abs/1606.01404
+**** Generating naming languages: http://mewo2.com/notes/naming-language/
+***** Note that: 'The initial idea was that different regions of each map would have different languages, but I abandoned this because it was too hard to make it clear that this was what was going on...'
+***** We solve this problem by having different character bases
+***** HN discussion: https://news.ycombinator.com/item?id=12186022
+**** Gutenburg based gibberish in python: https://github.com/colwilson/Gibberish
+*** Notes
+**** Extra papers: http://www.langev.com/author/ksmith
+**** NLP Professor: http://www.linguistics.illinois.edu/people/girju
+**** Language and Social Interaction: http://www.linguistics.illinois.edu/people/koshik
+**** Lingusitics Professors: http://www.linguistics.illinois.edu/people/faculty/default.aspx
+**** Evolution of Human Languages Literature: http://groups.lis.illinois.edu/amag/langev/pubtype/inbook_TheEvolutionofHumanLanguages.html
+**** Arbitray Communciative Conventions: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0043807
