@@ -12,7 +12,7 @@ class Atlas(object):
     1. Takes in a 2D numpy array (or generates points with given boundaries)
 
     2. Creates a tuple of two graphs (with networkx) representing the Delaunay triangulation (https://en.wikipedia.org/wiki/Delaunay_triangulation)
-
+x
     3. Relaxes the points through Lloyd's Algorithm (https://en.wikipedia.org/wiki/Lloyd%27s_algorithm)
 
     4. Returns a Voronoi diagram (http://www.voronoi.com/wiki/index.php?title=Main_Page)
@@ -59,13 +59,15 @@ class Atlas(object):
 
     def generate_voronoi(self):
         """
-        Uses scipy.spatial.Voronoi to generate a voronoi diagram
+        Uses scipy.spatial.Voronoi to generate a voronoi diagram.
+        Filters viable regions and stashes them in filtered_regions, see https://stackoverflow.com/questions/28665491/getting-a-bounded-polygon-coordinates-from-voronoi-cells
+
         :return: A voronoi diagram based on the points
         :rtype: scipy.spatial.Voronoi
         """
         eps = sys.float_info.epsilon
         self.vor = Voronoi(self.points)
-        self.filtered_regions = [] #see https://stackoverflow.com/questions/28665491/getting-a-bounded-polygon-coordinates-from-voronoi-cells
+        self.filtered_regions = []
         for region in self.vor.regions:
             flag = True
             for index in region:
