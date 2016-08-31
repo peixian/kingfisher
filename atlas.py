@@ -12,7 +12,7 @@ class Atlas(object):
     1. Takes in a 2D numpy array (or generates points with given boundaries)
 
     2. Creates a tuple of two graphs (with networkx) representing the Delaunay triangulation (https://en.wikipedia.org/wiki/Delaunay_triangulation)
-x
+
     3. Relaxes the points through Lloyd's Algorithm (https://en.wikipedia.org/wiki/Lloyd%27s_algorithm)
 
     4. Returns a Voronoi diagram (http://www.voronoi.com/wiki/index.php?title=Main_Page)
